@@ -65,8 +65,6 @@ export default {
       }
     }
   },
-  methods:{
-  },
 }
 </script>
 
