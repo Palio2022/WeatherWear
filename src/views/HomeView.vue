@@ -9,9 +9,6 @@ export default defineComponent({
 
 <template>
   <main>
-    <kachel daytime="Vormittags"></kachel>
-    <kachel daytime="Mittag"></kachel>
-    <kachel></kachel>
-    <kachel></kachel>
+    <kachel daytime="Vormittags" uv-index="7" weathertyp="rain" temperature="-11"></kachel>
   </main>
 </template>
