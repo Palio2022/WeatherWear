@@ -3,7 +3,7 @@
     <div class="hero-body has-background-info-light has-text-black">
       <div class="has-text-centered">
         <div class="title is-4 has-text-black"> {{this.daytime}}</div>
-        <div class="title is-5 has-text-weight-bold has-text-black"> 14 °C</div>
+        <div class="title is-5 has-text-weight-bold has-text-black"> {{ this.temperature }} °C</div>
 <!--        <div><img src="" alt="Kleidungsstück"></div>-->
         <div>{{ kleidungsstueck }}</div>
       </div>
@@ -70,6 +70,7 @@ export default {
 
 <style>
 .border{
+  margin: 10px;
   padding: 10px;
   border-style: solid;
   border-color: white;
