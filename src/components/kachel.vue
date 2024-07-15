@@ -1,14 +1,29 @@
 <template>
-  
-     <div class="border hero ">
+
+  <div class="border hero ">
     <div class="hero-body has-text-black kachel ">
       <div class="has-text-centered ">
-        <div class="title is-4 has-text-black"> {{this.daytime}}</div>
-        <div class="title is-5 has-text-weight-bold has-text-black "> <img src="https://www.svgrepo.com/show/471978/thermometer-03.svg" alt="IMG NOT FOUND" style="width: 45px;">{{ this.temperature }} °C</div>
-        <div class="title is-5 has-text-weight-bold has-text-black"> <img src="https://www.svgrepo.com/show/466946/wind-alt.svg" alt="IMG NOT FOUND" style="width: 45px;"> {{ this.wind }} km/h</div>
-        <div class="title is-5 has-text-weight-bold has-text-black"> <img src="https://www.svgrepo.com/show/451222/rain.svg" alt="IMG NOT FOUND" style="width: 45px;">{{ this.rain }} mm</div>
-      
-<!--        <div><img src="" alt="Kleidungsstück"></div>-->
+        <div class="title is-4 has-text-black"> {{ this.daytime }}</div>
+        <div class="container" style="font-size: large;">
+          <div style="display: flex; align-items: center; margin-left: 10px;">
+            <img src="https://www.svgrepo.com/show/471978/thermometer-03.svg" alt="IMG NOT FOUND" style="width: 25px;">
+            <span style="margin-left: 3px;">{{ this.temperature }}°C</span>
+          </div>
+          <div style="display: flex; align-items: center; margin-left: 10px;">
+             <img src="https://www.svgrepo.com/show/466946/wind-alt.svg" alt="IMG NOT FOUND" style="width: 25px;">
+
+            <span >{{this.wind}}km/h</span>
+          </div>
+         <div style="display: flex; align-items: center; margin-left: 10px;">
+           <img src="https://www.svgrepo.com/show/451222/rain.svg" alt="IMG NOT FOUND" style="width:25px;">
+           <span style="margin-left: 3px;">
+            {{this.rain}}mm
+           </span>
+           <div>{{ this.weathertyp }}</div>
+
+         </div>
+
+        </div>
         <div> <img :src="kleidungsstueck" alt="IMG NOT FOUND" style="width: 100px;">{{  }}</div>
       </div>
       <div>
@@ -33,17 +48,17 @@ export default {
   props: {
     daytime: String,
     temperature: Number,
-    weathertyp: String,  //rain, sun, snow
+    weathertyp: Number,
     uvIndex: Number,
     wind: Number,
     rain: Number
   },
   computed: {
     kleidungsstueck() {
-      if (this.weathertyp.includes("rain") || this.weathertyp.includes("snow")){
+      if (this.weathertyp >= 51 && this.weathertyp <= 99) {
         return "https://www.svgrepo.com/show/425788/jacket.svg"
       }
-      else if (this.weathertyp.includes("sun")){
+      else {
         if(this.temperature < 10){
           return "https://www.svgrepo.com/show/425788/jacket.svg"
         }
@@ -60,6 +75,10 @@ export default {
 </script>
 
 <style>
+.container {
+  display: flex;
+
+}
 .date {
   font-size: xx-large;
   color: #001d3d;
@@ -79,9 +98,9 @@ export default {
 body {
   background-color: #FAEDCD;
 }
-.border{
+.border {
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
   border-style: solid;
   border-color: white;
   border-radius: 20px;
