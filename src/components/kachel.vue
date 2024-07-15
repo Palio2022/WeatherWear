@@ -1,9 +1,13 @@
 <template>
-  <div class="border hero">
-    <div class="hero-body has-background-info-light has-text-black">
-      <div class="has-text-centered">
+  
+     <div class="border hero ">
+    <div class="hero-body has-text-black kachel ">
+      <div class="has-text-centered ">
         <div class="title is-4 has-text-black"> {{this.daytime}}</div>
-        <div class="title is-5 has-text-weight-bold has-text-black"> {{ this.temperature }} °C</div>
+        <div class="title is-5 has-text-weight-bold has-text-black "> <img src="https://www.svgrepo.com/show/471978/thermometer-03.svg" alt="IMG NOT FOUND" style="width: 45px;">{{ this.temperature }} °C</div>
+        <div class="title is-5 has-text-weight-bold has-text-black"> <img src="https://www.svgrepo.com/show/466946/wind-alt.svg" alt="IMG NOT FOUND" style="width: 45px;"> {{ this.wind }} km/h</div>
+        <div class="title is-5 has-text-weight-bold has-text-black"> <img src="https://www.svgrepo.com/show/451222/rain.svg" alt="IMG NOT FOUND" style="width: 45px;">{{ this.rain }} mm</div>
+      
 <!--        <div><img src="" alt="Kleidungsstück"></div>-->
         <div>{{ kleidungsstueck }}</div>
       </div>
@@ -13,6 +17,8 @@
       </div>
     </div>
   </div>
+  
+ 
 </template>
 
 <script>
@@ -24,7 +30,8 @@ export default {
     temperature: Number,
     weathertyp: String,  //rain, sun, snow
     uvIndex: Number,
-
+    wind: Number,
+    rain: Number
   },
   computed: {
     uvMaßnahme() {
@@ -69,12 +76,31 @@ export default {
 </script>
 
 <style>
+.date {
+  font-size: xx-large;
+  color: #001d3d;
+  font-weight: bold;
+}
+.outerBorder{
+  margin: 15px;
+  padding: 10px;
+  border-style: solid;
+  border-color: #D4A373;
+  border-radius: 20px;
+}
+.kachel {
+  background-color: #CCD5AE;
+  border-radius: 20px;
+}
+body {
+  background-color: #FAEDCD;
+}
 .border{
   margin: 10px;
   padding: 10px;
   border-style: solid;
   border-color: white;
-  border-radius: 5px;
+  border-radius: 20px;
 
 }
 </style>
