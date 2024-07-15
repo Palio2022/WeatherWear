@@ -13,7 +13,10 @@
       </div>
       <div>
         <div> UV Index: {{ this.uvIndex }}</div>
-        <div> Empfohlener UV Schutz: {{ uvMaßnahme }}</div>
+        <div> Empfohlener UV Schutz: </div>
+        <div>
+          <UVPicFormatter :uvIndex="this.uvIndex"></UVPicFormatter>
+        </div>
       </div>
     </div>
   </div>
@@ -23,8 +26,10 @@
 
 <script>
 import {stringifyQuery} from "vue-router";
+import UVPicFormatter from "@/components/UVPicFormatter.vue";
 
 export default {
+  components: { UVPicFormatter },
   props: {
     daytime: String,
     temperature: Number,
@@ -34,21 +39,6 @@ export default {
     rain: Number
   },
   computed: {
-    uvMaßnahme() {
-      if(this.uvIndex <= 2){
-        return "Kein UV Schutz notwendig"
-      }
-      else if(this.uvIndex >= 3 && this.uvIndex <= 5){
-        return "Entweder Hut, T-Shirt, Sonnenbrille, Sonnencreme tragen oder im Schatten aufhalten"
-      }
-      else if(this.uvIndex >= 6 && this.uvIndex <= 7){
-        return "Hut, T-Shirt, Sonnenbrille, Sonnencreme und im Schatten aufhalten"
-      }
-      else if(this.uvIndex >= 8 && this.uvIndex <= 10){
-        return "Hut, T-Shirt, Sonnenbrille, Sonnencreme, im Schatten aufhalten, zwischen 11 und 16 Uhr im Haus sein"
-      }
-    },
-
     kleidungsstueck() {
       if (this.weathertyp.includes("rain") || this.weathertyp.includes("snow")){
         return "https://www.svgrepo.com/show/425788/jacket.svg"
