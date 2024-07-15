@@ -168,7 +168,7 @@ export default defineComponent({
   <div><img src="https://www.svgrepo.com/show/513450/location-pin.svg" alt="IMG NOT FOUND" style="width: 45px;"><span>{{
     location }}</span></div>
   <main class="columns is-fullwidth outerBorder">
-    <kachel class="column" daytime="Vormittags" :uv-index="weatherData.morning.uv" weathertyp="rain"
+    <kachel class="column" daytime="Vormittags" :uv-index="weatherData.morning.uv" weathertyp="sun"
       :temperature="weatherData.morning.temperature" :wind="weatherData.morning.wind" :rain="weatherData.morning.rain">
     </kachel>
     <kachel class="column" daytime="Mittags" :uv-index="weatherData.midday.uv" weathertyp="sun"

@@ -9,7 +9,7 @@
         <div class="title is-5 has-text-weight-bold has-text-black"> <img src="https://www.svgrepo.com/show/451222/rain.svg" alt="IMG NOT FOUND" style="width: 45px;">{{ this.rain }} mm</div>
       
 <!--        <div><img src="" alt="Kleidungsstück"></div>-->
-        <div>{{ kleidungsstueck }}</div>
+        <div> <img :src="kleidungsstueck" alt="IMG NOT FOUND" style="width: 100px;">{{  }}</div>
       </div>
       <div>
         <div> UV Index: {{ this.uvIndex }}</div>
@@ -51,23 +51,17 @@ export default {
 
     kleidungsstueck() {
       if (this.weathertyp.includes("rain") || this.weathertyp.includes("snow")){
-        return "Jacke"
+        return "https://www.svgrepo.com/show/425788/jacket.svg"
       }
       else if (this.weathertyp.includes("sun")){
         if(this.temperature < 10){
-          return "Jacke, Pullover, Lange Hose"
+          return "https://www.svgrepo.com/show/425788/jacket.svg"
         }
-        else if (this.temperature >= 10 && this.temperature <= 17 ){
-          return "Pullover, Lange Hose";
+        else if (this.temperature >= 10 && this.temperature <= 21 ){
+          return "https://www.svgrepo.com/show/260867/hoodie-sweatshirt.svg";
         }
-        else if (this.temperature >= 16 && this.temperature <= 20 ){
-          return "T-Shirt, Lange Hose";
-        }
-        else if (this.temperature >= 21 && this.temperature <= 24 ){
-          return "Pullover, Kurze Hose";
-        }
-        else if (this.temperature >= 25 ){
-          return "T-Shirt, Kurze Hose";
+        else if (this.temperature >= 21 ){
+          return "https://www.svgrepo.com/show/311551/tshirt.svg";
         }
       }
     }
